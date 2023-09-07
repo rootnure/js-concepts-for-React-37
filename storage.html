@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local & Session Storage</title>
+</head>
+<body>
+    <h1>Local Storage and Session Storage</h1>
+    <h2></h2>
+    <input type="text" id="storage-id" placeholder="Storage Id">
+    <input type="text" id="storage-value" placeholder="Storage value">
+    <br>
+    <button onclick="addToLS()">Add to Local Storage</button>
+    <button onclick="addObjToLS()">Add above Object to Local Storage</button>
+    <script>
+        const addToLS = () => {
+            const idInput = document.getElementById('storage-id');
+            const id = idInput.value;
+            const valueInput = document.getElementById('storage-value');
+            const value = valueInput.value;
+            if(id && value) {
+                localStorage.setItem(id, value);
+            }
+
+            idInput.value = '';
+            valueInput.value = '';
+        }
+        
+        const myObj = {
+            name: 'asdfasd',
+            age: 23
+        }
+
+        document.getElementsByTagName('h2')[0].innerText = 'Object: ' + JSON.stringify(myObj);
+
+        const addObjToLS = () => {
+            const obj = JSON.stringify(myObj);
+            localStorage.setItem('myObj', obj);
+        }
+    </script>
+</body>
+</html>
