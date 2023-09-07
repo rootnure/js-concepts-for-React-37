@@ -45,6 +45,6 @@ const employee = {
 }
 
 const {machine, ide} = employee;
-// const {address, weight} = employee.specification; // cannot destructure multilayer at once
+// const {address, weight} = employee; // cannot destructure multilayer at once
 const {address, weight} = employee?.specification; // use optional chaining
 const {brand} = employee?.specification?.watch;
